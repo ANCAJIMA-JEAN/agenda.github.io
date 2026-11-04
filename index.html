@@ -348,7 +348,7 @@ function chart(id,cfg){ if(CH[id]) CH[id].destroy(); CH[id]=new Chart($(id),cfg)
 function pintarGraf(){
   const rs=filtrar(), a=agg(rs), ps=porParcela(rs), ss=sectoresCon(rs), multi=ss.length>1;
   const kp=(v,t)=>`<div class="kpi"><b>${v}</b><span>${t}</span></div>`;
-  $('g-kpis').innerHTML=kp(a.parcelas,'Parcelas')+kp(fmt(a.muertas),'Plantas muertas')+kp(fmt(Math.round(a.est)),'Plantas estimadas')+kp((a.mort*100).toFixed(2)+'%','% muertas')+kp((100-a.mort*100).toFixed(2)+'%','% sanas')+kp(a.ha?(a.muertas/a.ha).toFixed(1):'—','Muertas por ha');
+  $('g-kpis').innerHTML=kp(a.parcelas,'Parcelas')+kp(fmt(a.muertas),'Plantas infestadas')+kp(fmt(Math.round(a.est)),'Plantas evaluadas')+kp((a.mort*100).toFixed(2)+'%','% de plantas infestadas')+kp((100-a.mort*100).toFixed(2)+'%','% sanas')+kp(a.ha?(a.muertas/a.ha).toFixed(1):'—','planta infestada por ha');
   const pf=v=>Number((+v).toFixed(2))+'%';
   const pct=o=>GK.map((k,i)=>({label:GN[i],backgroundColor:GC[i],data:o.map(x=>x.gs?+(x[k]/x.gs*100).toFixed(2):0)}));
   const yP={beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}};

@@ -348,7 +348,7 @@ function chart(id,cfg){ if(CH[id]) CH[id].destroy(); CH[id]=new Chart($(id),cfg)
 function pintarGraf(){
   const rs=filtrar(), a=agg(rs), ps=porParcela(rs), ss=sectoresCon(rs), multi=ss.length>1;
   const kp=(v,t)=>`<div class="kpi"><b>${v}</b><span>${t}</span></div>`;
-  $('g-kpis').innerHTML=kp(a.parcelas,'Parcelas')+kp(fmt(a.muertas),'Plantas infestadas')+kp(fmt(Math.round(a.est)),'Plantas evaluadas')+kp((a.mort*100).toFixed(2)+'%','% de plantas infestadas')+kp((100-a.mort*100).toFixed(2)+'%','% sanas')+kp(a.ha?(a.muertas/a.ha).toFixed(1):'—','planta infestada por ha');
+  $('g-kpis').innerHTML=kp(a.parcelas,'Parcelas')+kp(fmt(a.muertas),'Plantas infectadas')+kp(fmt(Math.round(a.est)),'Plantas evaluadas')+kp((a.mort*100).toFixed(2)+'%','% de plantas infectadas')+kp((100-a.mort*100).toFixed(2)+'%','% sanas')+kp(a.ha?(a.muertas/a.ha).toFixed(1):'—','planta infestada por ha');
   const pf=v=>Number((+v).toFixed(2))+'%';
   const pct=o=>GK.map((k,i)=>({label:GN[i],backgroundColor:GC[i],data:o.map(x=>x.gs?+(x[k]/x.gs*100).toFixed(2):0)}));
   const yP={beginAtZero:true,max:100,ticks:{callback:v=>v+'%'}};
@@ -371,7 +371,7 @@ function pintarGraf(){
       {label:'% plantas muertas',backgroundColor:'#c62828',yAxisID:'y1',hidden:!S3.muertas,data:ps.map(p=>+(p.a.mort*100).toFixed(4)),datalabels:{anchor:'end',align:'end',color:'#c62828'}}]},
     options:{maintainAspectRatio:false,layout:{padding:{top:34}},
       scales:{y:{display:S3.sanas,position:'left',title:{display:true,text:'% sanas',color:'#2e7d32'},ticks:{callback:v=>pf(v)}},
-              y1:{display:S3.muertas,position:'right',beginAtZero:true,grace:'25%',grid:{drawOnChartArea:false},title:{display:true,text:'% muertas',color:'#c62828'},ticks:{callback:v=>pf(v)}}},
+              y1:{display:S3.muertas,position:'right',beginAtZero:true,grace:'25%',grid:{drawOnChartArea:false},title:{display:true,text:'% afectado',color:'#c62828'},ticks:{callback:v=>pf(v)}}},
       plugins:{legend:{display:true,position:'bottom',onClick:()=>{}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${pf(c.parsed.y)}`}},datalabels:{rotation:-90,font:{size:9,weight:'bold'},formatter:pf,clamp:true}}}});
   $('t-sanas').classList.toggle('on',S3.sanas); $('t-muertas').classList.toggle('on',S3.muertas);
   chart('c4',{type:'doughnut',data:{labels:GN,datasets:[{data:GK.map(k=>a[k]),backgroundColor:GC}]},

@@ -85,7 +85,7 @@ button.tg.on{background:var(--c);color:#fff}
 <section id="v-list" class="hide">
   <div class="card">
     <div class="row sb" style="margin-bottom:10px"><h2 style="margin:0">Consolidado por sector</h2><button class="sec" id="b-expall">Exportar todo a Excel</button></div>
-    <div class="tw"><table><thead><tr><th>Sector</th><th>Total parcelas</th><th>Total plantas infestadas</th><th>Grado 1 (25%)</th><th>Grado 2 (50%)</th><th>Grado 3 (75%)</th><th>Grado 4 (100%)</th></tr></thead><tbody id="l-body"></tbody></table></div>
+    <div class="tw"><table><thead><tr><th>Sector</th><th>Total parcelas</th><th>Total plantas infectadas</th><th>Grado 1 (25%)</th><th>Grado 2 (50%)</th><th>Grado 3 (75%)</th><th>Grado 4 (100%)</th></tr></thead><tbody id="l-body"></tbody></table></div>
     <p class="tot" id="l-empty"></p>
   </div>
 </section>
@@ -101,11 +101,11 @@ button.tg.on{background:var(--c);color:#fff}
     <div><label>Hasta</label><input type="date" id="f-d2"></div>
   </div><div class="row" style="margin-top:10px"><button class="sec" id="f-clr">Limpiar filtros</button><button class="sec" id="f-xls">Exportar datos a Excel</button></div></div>
   <div class="kpis" id="g-kpis"></div>
-  <div class="card"><h3>% de incidencia de plantas infestadas por sector (por grado)</h3><div class="cw"><canvas id="c1"></canvas></div></div>
-  <div class="card"><h3>% de incidencia de plantas infestadas por parcela (por grado)</h3><p class="tot" style="margin:-4px 0 8px">La cifra en el óvalo sobre cada barra es el % de plantas infestadas de la parcela.</p><div class="sc"><div class="cw" id="w2"><canvas id="c2"></canvas></div></div></div>
-  <div class="card"><div class="row sb" style="margin-bottom:8px"><h3 style="margin:0">% de plantas con Lasiodiplodia por parcela</h3><span class="row"><button class="tg" id="t-sanas" style="--c:#2e7d32">% Sanas</button><button class="tg" id="t-muertas" style="--c:#c62828">% Muertas</button></span></div><div class="sc"><div class="cw" id="w3"><canvas id="c3"></canvas></div></div></div>
+  <div class="card"><h3>% de incidencia de plantas infectadas por sector (por grado)</h3><div class="cw"><canvas id="c1"></canvas></div></div>
+  <div class="card"><h3>% de incidencia de plantas infectadas por parcela (por grado)</h3><p class="tot" style="margin:-4px 0 8px">La cifra en el óvalo sobre cada barra es el % de plantas infectadas de la parcela.</p><div class="sc"><div class="cw" id="w2"><canvas id="c2"></canvas></div></div></div>
+  <div class="card"><div class="row sb" style="margin-bottom:8px"><h3 style="margin:0">% de plantas con Lasiodiplodia por parcela</h3><span class="row"><button class="tg" id="t-sanas" style="--c:#2e7d32">% Sanas</button><button class="tg" id="t-muertas" style="--c:#c62828">% infectado</button></span></div><div class="sc"><div class="cw" id="w3"><canvas id="c3"></canvas></div></div></div>
   <div class="card"><h3>Distribución por grado (selección)</h3><div class="cw" style="height:300px"><canvas id="c4"></canvas></div></div>
-  <div class="card"><h3>Detalle por parcela</h3><div class="tw"><table><thead><tr><th>Sector</th><th>Módulo</th><th>Parcela</th><th>Ha</th><th>Plantas estimadas</th><th>Plantas infestadas</th><th>% sanas</th><th>% infestado</th></tr></thead><tbody id="g-body"></tbody></table></div></div>
+  <div class="card"><h3>Detalle por parcela</h3><div class="tw"><table><thead><tr><th>Sector</th><th>Módulo</th><th>Parcela</th><th>Ha</th><th>Plantas estimadas</th><th>Plantas infectadas</th><th>% sanas</th><th>% infectado</th></tr></thead><tbody id="g-body"></tbody></table></div></div>
 </section>
 </main>
 <div id="msg" class="hide"></div>
